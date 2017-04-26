@@ -32,7 +32,7 @@ function loadData() {
 	});
 	
 	// load wikipedia data
-	var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + city + '&format=json&callback=wikiCallback';
+	var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + city + '&format=json&callback=wikiCallback';
 	var wikiRequestTimeout = setTimeout(function(){
 		$wikiElem.text("failed to get wikipedia resources");
 	}, 8000);
