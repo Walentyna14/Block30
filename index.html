@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Your Moving Companion</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<form id="form-container" class="form-container">
+		<p class="question">Where do you want to live?</p>
+		<label for="street">Street/Region: </label><input type="text" id="street" value="" placeholder="pomorskie">
+		<label for="city">City: </label><input type="text" id="city" value="" placeholder="pietrzwałd">
+		<button id="submit-btn">Submit</button>
+	</form>
+	<div class="wikipedia-container">
+		<h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
+		<ul id="wikipedia-links">
+			<li><a href="https://en.wikipedia.org/wiki/Sztum">Sztum</a>
+			<li><a href="https://en.wikipedia.org/wiki/Pietrzwałd,_Pomeranian_Voivodeship">Pietrzwałd</a>
+		</ul>
+	</div>
+
+
+	<div class="nytimes-container">
+		<h3 id="nytimes-header">Wikipedia about Pietrzwałd</h3>
+		<ul id="nytimes-articles" class="article-list">
+			<li>Pietrzwałd [ˈpjɛtʂfau̯t] (German: Peterswalde) is a village in the administrative district of Gmina Sztum, within Sztum County, Pomeranian Voivodeship, in northern Poland. It lies approximately 5 kilometres (3 mi) east of Sztum and 57 km (35 mi) south-east of the regional capital Gdańsk.
+			</li>
+			<li>Before 1772 the area was part of Kingdom of Poland, 1772-1945 Prussia and Germany. For the history of the region, see History of Pomerania.
+			</li>
+			<li>
+			The village has a population of 180.
+			</li>
+		</ul>
+	</div>
+
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/script.js"></script>
+	<img class="bgimg" src="http://gmina.sztum.pl/files/gallery/fotob-27.jpg">
+</body>
+</html>
