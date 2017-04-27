@@ -13,7 +13,7 @@ function loadData() {
 	var city = $("#city").val();
 	var adress= street +","+city;
 	// load streetview
-	var mapsURL = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+adress&"&key=AIzaSyCdcdf4qygwVX0q9FAPCpYe-Njigg_01FI";
+	var mapsURL = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+adress+"&key=AIzaSyBRiOSOEAs1s156dRb9fyO6xiNDQnNwj2U ";
 	//$body.append("<img class=\"bgimg\" src=\""+mapsURL+"\">")
 	$(".bgimg").attr("src", mapsURL);
 	
