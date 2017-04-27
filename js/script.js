@@ -47,8 +47,8 @@ function loadData() {
 			var articleList = response[1];
 
 			for (var i = 0; i <= articleList.length; i++) {
-				if(articles.length==0)
-					$nytHeaderElem.append("<p>We don't have any aricles about "+city+"</p>");
+				if(articleList.length==0)
+					$wikiElem.append("<p>We don't have any aricles about "+city+"</p>");
 				articleStr = articleList[i];
 				var url = 'http://en.wikipedia.org/wiki/' + articleStr;
 				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
