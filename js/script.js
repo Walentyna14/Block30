@@ -17,13 +17,15 @@ function loadData() {
 	//$body.append("<img class=\"bgimg\" src=\""+mapsURL+"\">")
 	$(".bgimg").attr("src", mapsURL);
 	
-	// YOUR CODE GOES HERE!
+	// load NY articles data
 	var urlNY = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + adress + "&sort=newest&api-key=bf1a1fa67b464a09a809f0d806696f84"
 	$.getJSON( urlNY, function( data ) {
 		
 		$nytHeaderElem.text("NY Articles about "+ adress);
 		articles = data.response.docs;
-		for(var i=0;i<articles.length; i++){
+		for(var i=0;i<=articles.length; i++){
+			if(articles.length==0)
+				$nytHeaderElem.append("<p>We don't have any aricles about "+addres+"</p>");
 			var article = articles[i];
 			$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
 		}
@@ -44,7 +46,9 @@ function loadData() {
 		success: function( response ) {
 			var articleList = response[1];
 
-			for (var i = 0; i < articleList.length; i++) {
+			for (var i = 0; i <= articleList.length; i++) {
+				if(articles.length==0)
+					$nytHeaderElem.append("<p>We don't have any aricles about "+city+"</p>");
 				articleStr = articleList[i];
 				var url = 'http://en.wikipedia.org/wiki/' + articleStr;
 				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
