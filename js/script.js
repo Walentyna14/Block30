@@ -13,7 +13,7 @@ function loadData() {
 	var city = $("#city").val();
 	var adress= street +", "+city;
 	// load streetview
-	var mapsURL = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+adress+"";
+	var mapsURL = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+adress;
 	//$body.append("<img class=\"bgimg\" src=\""+mapsURL+"\">")
 	$(".bgimg").attr("src", mapsURL);
 	
