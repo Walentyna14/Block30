@@ -25,7 +25,7 @@ function loadData() {
 		articles = data.response.docs;
 		for(var i=0;i<=articles.length; i++){
 			if(articles.length==0)
-				$nytHeaderElem.append("<p>We don't have any aricles about "+address+"</p>");
+				$nytHeaderElem.append("<p>We don't have any aricles about "+adress+"</p>");
 			else{
 		 		var article = articles[i];
 				$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
