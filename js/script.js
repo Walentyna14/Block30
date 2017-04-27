@@ -23,13 +23,13 @@ function loadData() {
 		
 		$nytHeaderElem.text("NY Articles about "+ adress);
 		articles = data.response.docs;
-		for(var i=0;i<=articles.length; i++){
-			if(articles.length==0)
+		if(articles.length==0)
 				$nytHeaderElem.append("<p>We don't have any aricles about "+adress+"</p>");
-			else{
-		 		var article = articles[i];
-				$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
-			}
+		else{
+			for(var i=0;i<=articles.length; i++){
+			var article = articles[i];
+			$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
+		}
 		}
 	}).error(function(e){
 		$nytHeaderElem.append("<p>Something is crashed. Try again later.</p>");
@@ -47,11 +47,10 @@ function loadData() {
 		jsonp: "callback",
 		success: function( response ) {
 			var articleList = response[1];
-
-			for (var i = 0; i <= articleList.length; i++) {
-				if(articleList.length==0)
-					$wikiElem.append("<p>We don't have any aricles about "+city+"</p>");
-				else{
+			if(articleList.length==0)
+				$wikiElem.append("<p>We don't have any aricles about "+city+"</p>");
+			else{
+				for (var i = 0; i <= articleList.length; i++) {
 					articleStr = articleList[i];
 					var url = 'http://en.wikipedia.org/wiki/' + articleStr;
 					$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
