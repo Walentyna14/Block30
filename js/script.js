@@ -11,7 +11,7 @@ function loadData() {
 	// Addres
 	var street = $("#street").val();
 	var city = $("#city").val();
-	var adress= street +", "+city;
+	var adress= street +","+city;
 	// load streetview
 	var mapsURL = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+adress;
 	//$body.append("<img class=\"bgimg\" src=\""+mapsURL+"\">")
