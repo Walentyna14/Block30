@@ -26,8 +26,10 @@ function loadData() {
 		for(var i=0;i<=articles.length; i++){
 			if(articles.length==0)
 				$nytHeaderElem.append("<p>We don't have any aricles about "+address+"</p>");
-			var article = articles[i];
-			$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
+			else{
+		 		var article = articles[i];
+				$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
+			}
 		}
 	}).error(function(e){
 		$nytHeaderElem.append("<p>Something is crashed. Try again later.</p>");
