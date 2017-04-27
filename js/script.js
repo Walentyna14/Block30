@@ -49,9 +49,12 @@ function loadData() {
 			for (var i = 0; i <= articleList.length; i++) {
 				if(articleList.length==0)
 					$wikiElem.append("<p>We don't have any aricles about "+city+"</p>");
-				articleStr = articleList[i];
-				var url = 'http://en.wikipedia.org/wiki/' + articleStr;
-				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
+				else{
+					articleStr = articleList[i];
+					var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+					$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
+				}
+
 			};
 
 			clearTimeout(wikiRequestTimeout);
