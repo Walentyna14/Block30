@@ -19,13 +19,17 @@ function loadStreetView(adress) {
 
 };
 
+function fetchData(url, successFunction, errorFunction){
+	$.getJSON( url, successFunction).errorFunction;
+	
+}
+
 function loadNYT(adress) {
 	var $nytHeaderElem = $('#nytimes-header');
 	var $nytElem = $('#nytimes-articles');
 	$nytElem.text("");
 	var urlNY = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + adress + "&sort=newest&api-key=bf1a1fa67b464a09a809f0d806696f84"
-	$.getJSON( urlNY, function( data ) {
-		
+	function success( data ) {
 		$nytHeaderElem.text("NY Articles about "+ adress);
 		articles = data.response.docs;
 		if(articles.length==0)
@@ -36,17 +40,19 @@ function loadNYT(adress) {
 			$nytElem.append('<li class="article"'+'<a href="'+article.web_url+'"><h3>'+article.headline.main+'</h3></a><p>'+article.snippet+'</p></li>');
 			}
 		}
-	}).error(function(e){
+	}
+	function error(e){
 		$nytHeaderElem.append("<p>Something is crashed. Try again later.</p>");
-	});
+	};
+	
+	fetchData(urlNY, success, error);
 };
 
 function loadWiki(city) {
 	var $wikiElem = $('#wikipedia-links');
 	$wikiElem.text("");
 	var wikiUrl = 'https://en.wikipedia.org/w/api.php?format=json&action=opensearch&generator=search&search=' + city + '&format=json&callback=?';
-
-	$.getJSON(wikiUrl, function( data ) {
+	function success ( data ) {
 		var articleList = data[1];
 		if(articleList.length==0)
 			$wikiElem.append("<p>We don't have any aricles about "+city+"</p>");
@@ -57,7 +63,9 @@ function loadWiki(city) {
 				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
 			}
 		};
-	}).error(function(e){
+	}
+	function error (e){
 		$wikiElem.append('<p>Something is wrong. Try again later.</p>');
-	});
+	};
+	fetchData(wikiUrl, success, error);
 }
