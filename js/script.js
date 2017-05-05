@@ -20,7 +20,7 @@ function loadStreetView(adress) {
 };
 
 function fetchData(url, successFunction, errorFunction){
-	$.getJSON( url, successFunction).errorFunction;
+	$.getJSON( url, successFunction).fail(errorFunction);
 	
 }
 
